@@ -24,8 +24,34 @@ this.unit={
 	uint64=			{min=0,						max=18446744073709551615}
 }
 
+--[[
+		fox2={
+			tppVehicle2BodyData={
+				name='', -- string
+				typeIndex=, -- uint8; VehicleTypeIndex
+				proxyTypeIndex=, -- uint8; ProxyVehicleTypeIndex
+				bodyImplTypeIndex=, -- uint8
+				partsFile='', -- filePtr
+				bodyInstanceCount=, -- uint8
+				fovaFiles= -- filePtr
+			}
+		},
+]]
+
 this.vehicleDefaultData={
 	e_lv={ -- russian jeep
+		fox2={
+			tppVehicle2BodyData={
+				name='veh_bd_east_lv|veh_bd_east_lv', -- string
+				typeIndex=2, -- uint8; VehicleTypeIndex
+				proxyTypeIndex=2, -- uint8; ProxyVehicleTypeIndex
+				bodyImplTypeIndex=1, -- uint8
+				partsFile='/Assets/tpp/parts/mecha/slv/slv0_main0_def.parts', -- filePtr
+				bodyInstanceCount=1, -- uint8
+				fovaFiles=nil -- filePtr
+			}
+		},
+
 		sound={
 			vehicleSoundPackage='/Assets/tpp/sound/package/vehicle_slv_media.sdf'
 		},
@@ -56,8 +82,8 @@ this.vehicleDefaultData={
 				vfx_VehicleSandstorm='fx_tpp_mchsndstm01_s2LG',
 				vfx_HeadlightLeft='fx_tpp_lgthedamb01_m1MG',
 				vfx_HeadlightRight='fx_tpp_lgthedamb01_m1MG',
-				vfx_BrakeHeadlightLeft='fx_tpp_brklgtgnt01_s1LG',
-				vfx_BrakeHeadlightRight='fx_tpp_brklgtgnt01_s1LG',
+				vfx_BrokenHeadlightLeft='fx_tpp_brklgtgnt01_s1LG',
+				vfx_BrokenHeadlightRight='fx_tpp_brklgtgnt01_s1LG',
 				vfx_SparkActive='/Assets/tpp/effect/vfx_data/weapon/fx_tpp_wepltb04_s0.vfx',
 				vfx_SplashDoorLeft=nil,
 				vfx_SplashDoorRootLeft=nil,
@@ -96,6 +122,10 @@ this.vehicleDefaultData={
 		},
 
 		engine={ -- 8 gears
+			torqueDistributions=nil, -- axles; float
+
+			gearRatios=nil, -- float
+
 			cumulativeRPM={ -- specPointAngularVelocity
 				0,
 				1e3,
@@ -182,8 +212,20 @@ this.vehicleDefaultData={
 	},
 
 	w_lv={ -- american jeep
+		fox2={
+			tppVehicle2BodyData={
+				name='veh_bd_west_lv|veh_bd_west_lv', -- string
+				typeIndex=1, -- uint8; VehicleTypeIndex
+				proxyTypeIndex=1, -- uint8; ProxyVehicleTypeIndex
+				bodyImplTypeIndex=1, -- uint8
+				partsFile='/Assets/tpp/parts/mecha/plv/plv0_main0_def.parts', -- filePtr
+				bodyInstanceCount=1, -- uint8
+				fovaFiles=nil -- filePtr
+			}
+		},
+
 		sound={
-			vehicleSoundPackage=''
+			vehicleSoundPackage='/Assets/tpp/sound/package/vehicle_plv_media.sdf'
 		},
 
 		parts={ -- ModelDescription; *.parts
@@ -252,6 +294,10 @@ this.vehicleDefaultData={
 		},
 
 		engine={ -- 8 gears
+			torqueDistributions=nil, -- axles; float
+
+			gearRatios=nil, -- float
+
 			cumulativeRPM={ -- specPointAngularVelocity; float
 				0,
 				1e3,
@@ -339,6 +385,18 @@ this.vehicleDefaultData={
 	},
 
 	e_trc={ -- russian truck
+		fox2={
+			tppVehicle2BodyData={
+				name='veh_bd_east_trc|veh_bd_east_trc', -- string
+				typeIndex=4, -- uint8; VehicleTypeIndex
+				proxyTypeIndex=4, -- uint8; ProxyVehicleTypeIndex
+				bodyImplTypeIndex=2, -- uint8
+				partsFile='/Assets/tpp/parts/mecha/smt/smt0_main0_def.parts', -- filePtr
+				bodyInstanceCount=1, -- uint8
+				fovaFiles=nil -- filePtr
+			}
+		},
+
 		sound={
 			vehicleSoundPackage='/Assets/tpp/sound/package/vehicle_smt_media.sdf'
 		},
@@ -468,6 +526,10 @@ this.vehicleDefaultData={
 		},
 
 		engine={ -- 8 gears
+			torqueDistributions=nil, -- axles; float
+
+			gearRatios=nil, -- float
+
 			cumulativeRPM={ -- specPointAngularVelocity; float
 				0,
 				1e3,
@@ -555,6 +617,18 @@ this.vehicleDefaultData={
 	},
 
 	w_trc={ -- american truck
+		fox2={
+			tppVehicle2BodyData={
+				name='veh_bd_west_trc|veh_bd_west_trc', -- string
+				typeIndex=3, -- uint8; VehicleTypeIndex
+				proxyTypeIndex=3, -- uint8; ProxyVehicleTypeIndex
+				bodyImplTypeIndex=2, -- uint8
+				partsFile='/Assets/tpp/parts/mecha/nmt/nmt0_main0_def.parts', -- filePtr
+				bodyInstanceCount=1, -- uint8
+				fovaFiles=nil -- filePtr
+			}
+		},
+
 		sound={
 			vehicleSoundPackage='vehicle_nmt_media.sdf'
 		},
@@ -684,6 +758,10 @@ this.vehicleDefaultData={
 		},
 
 		engine={ -- 8 gears
+			torqueDistributions=nil, -- axles; float
+
+			gearRatios=nil, -- float
+
 			cumulativeRPM={ -- specPointAngularVelocity; float
 				0,
 				1e3,
@@ -770,54 +848,53 @@ this.vehicleDefaultData={
 		}
 	},
 
-	e_wav={ -- russian apc
-		--[[fox2={
+	e_wav={ -- russian apc (autocannon)
+		fox2={
 			tppVehicle2BodyData={
-				name=, -- string
-				typeIndex=, -- uint8; VehicleTypeIndex
-				proxyTypeIndex=, -- uint8; ProxyVehicleTypeIndex
-				bodyImplTypeIndex=, -- uint8
-				partsFile=, -- filePtr
-				bodyInstanceCount=, -- uint8
-				fovaFiles= -- filePtr
+				name='veh_bd_east_wav|veh_bd_east_wav', -- string
+				typeIndex=6, -- uint8; VehicleTypeIndex
+				proxyTypeIndex=6, -- uint8; ProxyVehicleTypeIndex
+				bodyImplTypeIndex=3, -- uint8
+				partsFile='/Assets/tpp/parts/mecha/sav/sav0_main0_def.parts', -- filePtr
+				bodyInstanceCount=1, -- uint8
+				fovaFiles=nil -- filePtr
 			},
 
 			weaponParameters={
 				primary={
-					attackId=, -- string
-					equipId=, -- string
-					bulletId=, -- string
-					weaponImplTypeIndex=, -- uint8
-					fireInterval=, -- float
-					weaponFile=, -- filePtr
-					ammoFile=, -- filePtr
-					ownerCnpName=, -- string
-					weaponBoneName=, -- string
-					turretBoneName=, -- string
-					barrelBoneName=, -- string
-					minPitch=, -- float
-					maxPitch=, -- float
-					rotSpeed= -- float
-				},
+					attackId='ATK_Tankgun_30mmAutoCannon', -- string
+					equipId=nil, -- string
+					bulletId='BL_Tankgun_30mmAutoCannon', -- string
+					weaponImplTypeIndex=1, -- uint8
+					fireInterval=0.333333, -- float
+					weaponFile=nil, -- filePtr
+					ammoFile=nil, -- filePtr
+					ownerCnpName=nil, -- string
+					weaponBoneName=nil, -- string
+					turretBoneName='SKL_001_TURRET', -- string
+					barrelBoneName='SKL_002_BARREL', -- string
+					minPitch=-0.20944, -- float
+					maxPitch=1.745329, -- float
+					rotSpeed=0.785398, -- float
 
-				secondary={
-					attackId=, -- string
-					equipId=, -- string
-					bulletId=, -- string
-					weaponImplTypeIndex=, -- uint8
-					fireInterval=, -- float
-					weaponFile=, -- filePtr
-					ammoFile=, -- filePtr
-					ownerCnpName=, -- string
-					weaponBoneName=, -- string
-					turretBoneName=, -- string
-					barrelBoneName=, -- string
-					minPitch=, -- float
-					maxPitch=, -- float
-					rotSpeed= -- float
+					uiGraphEntry={
+						name='veh_bd_east_wav|sight_vhcl_east_wav|UiGraphEntry0000', -- string
+						files=nil, -- filePtr; dynamicArray
+						rawFiles={ -- filePtr; dynamicArray
+							'/Assets/tpp/ui/LayoutAsset/hud_wpscope/UI_wpscope_vehicle_sav0_b.uilb',
+							'/Assets/tpp/ui/LayoutAsset/hud_wpscope/UI_vhcl_def_FPS_bs.uilb',
+							'/Assets/tpp/ui/LayoutAsset/hud_wpscope/UI_wpscope_vehicle_common.uilb'
+						}
+					},
+
+					uiInstanceData={
+						name='veh_bd_east_wav|sight_vhcl_east_wav|UiInstanceData0000', -- string
+						createWindowParams=nil, -- filePtr; stringMap
+						windowFactoryName='SightVhclSav0_bFactory' -- string
+					}
 				}
 			},
-		},]]
+		},
 
 		sound={
 			vehicleSoundPackage='Assets/tpp/sound/package/vehicle_sav_media.sdf'
@@ -866,6 +943,15 @@ this.vehicleDefaultData={
 		},
 
 		engine={ -- 7 gears
+			torqueDistributions={ -- axles; float
+				[0]=0.25,
+				0.25,
+				0.25,
+				0.25
+			},
+
+			gearRatios=nil, -- float
+
 			cumulativeRPM={ -- specPointAngularVelocity; float
 				0,
 				500,
@@ -947,6 +1033,1295 @@ this.vehicleDefaultData={
 			material=nil, -- string
 			noGravity=false -- bool
 		}
+	},
+
+	w_wav_machinegun={ -- american apc (autocannon)
+		fox2={
+			tppVehicle2BodyData={
+				name='veh_bd_west_wav|veh_bd_west_wav', -- string
+				typeIndex=5, -- uint8; VehicleTypeIndex
+				proxyTypeIndex=5, -- uint8; ProxyVehicleTypeIndex
+				bodyImplTypeIndex=4, -- uint8
+				partsFile='/Assets/tpp/parts/mecha/wav/wav0_main0_def.parts', -- filePtr
+				bodyInstanceCount=1, -- uint8
+				fovaFiles=nil -- filePtr
+			},
+
+			weaponParameters={
+				primary={
+					attackId='ATK_Tankgun_20mmAutoCannon', -- string
+					equipId=nil, -- string
+					bulletId='BL_Tankgun_20mmAutoCannon', -- string
+					weaponImplTypeIndex=1, -- uint8
+					fireInterval=0.333333, -- float
+					weaponFile=nil, -- filePtr
+					ammoFile=nil, -- filePtr
+					ownerCnpName=nil, -- string
+					weaponBoneName=nil, -- string
+					turretBoneName='SKL_001_TURRET', -- string
+					barrelBoneName='SKL_002_BARREL', -- string
+					minPitch=-0.15708, -- float
+					maxPitch=1.745329, -- float
+					rotSpeed=0.785398 -- float
+
+					uiGraphEntry={
+						name='veh_at_west_wav_trt_machinegun|sight_vhcl_west_wav_machinegun|UiGraphEntry0000', -- string
+						files=nil, -- filePtr; dynamicArray
+						rawFiles={ -- filePtr; dynamicArray
+							'/Assets/tpp/ui/LayoutAsset/hud_wpscope/UI_wpscope_vehicle_wav0_b.uilb',
+							'/Assets/tpp/ui/LayoutAsset/hud_wpscope/UI_vhcl_def_FPS_bs.uilb',
+							'/Assets/tpp/ui/LayoutAsset/hud_wpscope/UI_wpscope_vehicle_common.uilb'
+						}
+					},
+
+					uiInstanceData={
+						name='veh_at_west_wav_trt_machinegun|sight_vhcl_west_wav_machinegun|UiInstanceData0000', -- string
+						createWindowParams=nil, -- filePtr; stringMap
+						windowFactoryName='SightVhclWav0_bFactory' -- string
+					},
+
+					attachmentData={
+						name='veh_at_west_wav_trt_machinegun|veh_at_west_wav_trt_machinegun', -- string
+						vehicleTypeCode=81, -- uint8
+						attachmentImplTypeIndex=2, -- uint8
+						attachmentFile='/Assets/tpp/parts/mecha/wav/wav0_turt1_def.parts', -- filePtr
+						attachmentInstanceCount=1, -- uint8
+						bodyCnpName='CNP_TURRET', -- string
+						attachmentBoneName=nil -- string
+					}
+				}
+			},
+		},
+
+		sound={
+			vehicleSoundPackage='/Assets/tpp/sound/package/vehicle_wav_media.sdf'
+		},
+
+		parts={ -- ModelDescription; *.parts
+			main={
+				foxModel='/Assets/tpp/mecha/wav/Scenes/wav0_main0_def.fmdl', -- modelFile; FilePtr
+				foxConnectionPoint='/Assets/tpp/mecha/wav/Scenes/wav0_main0_def.fcnp', -- connectPointFile; FilePtr
+				rigFile=nil, -- gameRigFile; FilePtr
+				helpBoneFile=nil, -- FilePtr
+				lipAdjustFile=nil, -- lipAdjustBinaryFile; FilePtr
+				facialSettingFile=nil, -- FilePtr
+				geometrySkeleton='/Assets/tpp/mecha/wav/Scenes/wav0_main0_def.gskl', -- GeomSkeletonDescription; gsklFile; FilePtr
+				physicsFile='/Assets/tpp/parts/mecha/wav/wav.ph', -- PhysicsDescription; physicsFile; FilePtr
+				vehicleFile='/Assets/tpp/parts/mecha/wav/wav.veh', -- VehicleDescription; vehicleFile; FilePtr
+				physicsSoundFile='/Assets/tpp/parts/mecha/wav/wav.phsd', -- SoundDescription; soundFile; FilePtr
+				targetFile='/Assets/tpp/parts/mecha/wav/wav.tgt', -- FoxTargetDescription; targetFile; FilePtr; /Assets/tpp/parts/mecha/smt/smt_rootdefensetarget.tgt
+				
+				-- EffectDescription; effectFileFromFilePtr; FilePtr
+				vfx_TailLamp='/Assets/tpp/effect/vfx_data/light/fx_tpp_lgttil00_s0FG.vfx',
+				vfx_ExhaustSmoke='/Assets/tpp/effect/vfx_data/mecha/fx_tpp_mchexhsmk01_s4MG.vfx',
+				vfx_LightProbe='/Assets/tpp/effect/vfx_data/mecha/fx_tpp_mchlpbwav00_s5MD.vfx',
+				vfx_LightProbeInner='/Assets/tpp/effect/vfx_data/mecha/fx_tpp_mchlpbwav00_s5MD.vfx',
+				vfx_DamageSmoke='fx_tpp_smkmchbrk01_m1LG',
+				vfx_BrokenSmoke='fx_tpp_smkmchbrk02_m2LG',
+				vfx_PreExplosion='/Assets/tpp/effect/vfx_data/explosion/fx_tpp_expptl01_s3.vfx',
+				vfx_MuzzleFlash='/Assets/tpp/effect/vfx_data/muzzle/fx_tpp_mzfgg01_s0FG.vfx',
+				vfx_CannonMuzzleFlash='/Assets/tpp/effect/vfx_data/mecha/fx_tpp_mchstrmzlbls01_s8MG.vfx',
+				vfx_SubjectiveCannonMuzzleFlash='/Assets/tpp/effect/vfx_data/mecha/fx_tpp_mchstrmzlbls02_s8.vfx',
+				vfx_ShockWave='/Assets/tpp/effect/vfx_data/mecha/fx_tpp_mchstrmzlskw01_s8.vfx',
+				vfx_CannonShockWave='/Assets/tpp/effect/vfx_data/mecha/fx_tpp_mchstrmzlskw02_s2.vfx',
+				vfx_VehicleSandstorm='/Assets/tpp/effect/vfx_data/mecha/fx_tpp_mchsndstm02_s5LG.vfx',
+				vfx_HeadlightLeft='/Assets/tpp/effect/vfx_data/mecha/fx_tpp_mchwavlgthed01_m2FG.vfx',
+				vfx_HeadlightRight='/Assets/tpp/effect/vfx_data/mecha/fx_tpp_mchwavlgthed01_m2FG.vfx',
+				vfx_BrakeHeadlightLeft='fx_tpp_brklgtgnt01_s1LG',
+				vfx_BrakeHeadlightRight='fx_tpp_brklgtgnt01_s1LG',
+				vfx_SparkActive='/Assets/tpp/effect/vfx_data/weapon/fx_tpp_wepltb04_s0.vfx',
+				vfx_SplashDoorLeft=nil,
+				vfx_SplashDoorRootLeft=nil,
+				vfx_SplashDoorRight=nil,
+				vfx_SplashDoorRightRoot=nil,
+
+				LOD_farPixelSize=50,
+				LOD_closePixelSize=400,
+				LOD_polygonSize=-1,
+				renderRejectionLevel=8,
+				farShadowRejectionLevel=2
+			}
+		},
+
+		engine={ -- 7 gears
+			torqueDistributions={ -- axles; float
+				[0]=0.25,
+				0.25,
+				0.25,
+				0.25
+			},
+
+			gearRatios=nil, -- float
+
+			cumulativeRPM={ -- specPointAngularVelocity; float
+				0,
+				500,
+				1e3,
+				1500,
+				2e3,
+				3e3,
+				16e3
+			},
+			torque={ -- specPointTorque; float
+				6e3,
+				6040,
+				6060,
+				6080,
+				6060,
+				3e3,
+				1e3
+			},
+			brakeTorque={ -- specPointBreakTorque; float
+				750,
+				750,
+				750,
+				1e3,
+				1e3,
+				1250,
+				1500
+			}
+		},
+
+		chassis={
+			front={ -- axle 0,1
+				maxBrakeTorque=70500, -- maxBreakTorque; float
+				differential=true, -- useDifferential; bool
+				wheels={
+					radius=0.62, -- float
+					suspensionLength=0.5, -- float
+					maxSuspensionForce=1.3, -- float
+					dampDecompressionFactor=0.01, -- dampingFactorElong; float
+					dampCompressionFactor=5e-3, -- dampingFactorCompress; float
+					friction=0.94, -- float
+					restitution=0.1, -- float
+					inertia=1 -- float
+				},
+			},
+			back={ -- axle 2,3
+				maxBrakeTorque=70500, -- maxBreakTorque; float
+				differential=true, -- useDifferential; bool
+				wheels={
+					radius=0.62, -- float
+					suspensionLength=0.5, -- float
+					maxSuspensionForce=1.5, -- float
+					dampDecompressionFactor=0.015, -- dampingFactorElong; float
+					dampCompressionFactor=7e-3, -- dampingFactorCompress; float
+					friction=1.17, -- float
+					restitution=0.1, -- float
+					inertia=1 -- float
+				},
+			},
+		},
+
+		body={ -- PhRigidBodyParam; *.ph
+			mass=17340, -- float
+			friction=1, -- float
+			restitution=1e-3, -- float
+			linearVelocityDamp=1e-4, -- float
+			linearVelocityMax=100, -- maxLinearVelocity; float
+			angularVelocityDamp=2e-4, -- float
+			angularVelocityMax=90, -- maxAngularVelocity; float
+			permittedDepth=0.01, -- float
+			sleepEnable=true, -- bool
+			sleepLinearVelocityTh=0.1, -- float
+			sleepAngularVelocityTh=30, -- float
+			sleepTimeTh=0.25, -- float
+			collisionGroup=0, -- uint16
+			collisionType=0, -- uint16
+			collisionId=93, -- uint32
+			centerOfMassOffset={x=0, y=-0.85, z=0.5, w=0}, -- vector3
+			motionType=2, -- int32
+			material=nil, -- string
+			noGravity=false -- bool
+		}
+	},
+
+	e_wav_rocket={ -- russian apc (rockets)
+		fox2={
+			tppVehicle2BodyData={
+				name='veh_bd_east_wav|veh_bd_east_wav', -- string
+				typeIndex=6, -- uint8; VehicleTypeIndex
+				proxyTypeIndex=6, -- uint8; ProxyVehicleTypeIndex
+				bodyImplTypeIndex=3, -- uint8
+				partsFile='/Assets/tpp/parts/mecha/sav/sav0_main0_def.parts', -- filePtr
+				bodyInstanceCount=1, -- uint8
+				fovaFiles=nil -- filePtr
+			},
+
+			weaponParameters={
+				primary={
+					attackId='ATK_Tankgun_30mmAutoCannon', -- string
+					equipId=nil, -- string
+					bulletId='BL_Tankgun_30mmAutoCannon', -- string
+					weaponImplTypeIndex=1, -- uint8
+					fireInterval=0.333333, -- float
+					weaponFile=nil, -- filePtr
+					ammoFile=nil, -- filePtr
+					ownerCnpName=nil, -- string
+					weaponBoneName=nil, -- string
+					turretBoneName='SKL_001_TURRET', -- string
+					barrelBoneName='SKL_002_BARREL', -- string
+					minPitch=-0.20944, -- float
+					maxPitch=1.745329, -- float
+					rotSpeed=0.785398 -- float
+
+					uiGraphEntry={
+						name='veh_bd_east_wav|sight_vhcl_east_wav|UiGraphEntry0000', -- string
+						files=nil, -- filePtr; dynamicArray
+						rawFiles={ -- filePtr; dynamicArray
+							'/Assets/tpp/ui/LayoutAsset/hud_wpscope/UI_wpscope_vehicle_sav0_b.uilb',
+							'/Assets/tpp/ui/LayoutAsset/hud_wpscope/UI_vhcl_def_FPS_bs.uilb',
+							'/Assets/tpp/ui/LayoutAsset/hud_wpscope/UI_wpscope_vehicle_common.uilb'
+						}
+					},
+
+					uiInstanceData={
+						name='veh_bd_east_wav|sight_vhcl_east_wav|UiInstanceData0000', -- string
+						createWindowParams=nil, -- filePtr; stringMap
+						windowFactoryName='SightVhclSav0_bFactory' -- string
+					}
+				},
+
+				secondary={
+					attackId='ATK_Tankgun_82mmRocketPoweredProjectile', -- string
+					equipId='EQP_BL_Tankgun_82mmRocketPoweredProjectile', -- string
+					bulletId='BL_Tankgun_82mmRocketPoweredProjectile', -- string
+					weaponImplTypeIndex=3, -- uint8
+					fireInterval=15, -- float
+					weaponFile=nil, -- filePtr
+					ammoFile='/Assets/tpp/parts/mecha/sav/sav0_ammo0_def.parts', -- filePtr
+					ownerCnpName=nil, -- string
+					weaponBoneName=nil, -- string
+					turretBoneName=nil, -- string
+					barrelBoneName='SKL_001_FRAME', -- string
+					minPitch=0, -- float
+					maxPitch=1.570796, -- float
+					rotSpeed=0.392699 -- float
+
+					uiGraphEntry={
+						name='veh_at_east_wav_rocket|sight_vhcl_east_wav_rocket|UiGraphEntry0000', -- string
+						files=nil, -- filePtr; dynamicArray
+						rawFiles={ -- filePtr; dynamicArray
+							'/Assets/tpp/ui/LayoutAsset/hud_wpscope/UI_wpscope_vehicle_sav0_wepn0.uilb',
+							'/Assets/tpp/ui/LayoutAsset/hud_wpscope/UI_vhcl_def_FPS_bs.uilb',
+							'/Assets/tpp/ui/LayoutAsset/hud_wpscope/UI_wpscope_vehicle_common.uilb'
+						}
+					},
+
+					uiInstanceData={
+						name='veh_at_east_wav_rocket|sight_vhcl_east_wav_rocket|UiInstanceData0000', -- string
+						createWindowParams=nil, -- filePtr; stringMap
+						windowFactoryName='SightVhclSav0_wepn0Factory' -- string
+					},
+
+					attachmentData={
+						name='veh_at_east_wav_rocket|veh_at_east_wav_rocket', -- string
+						vehicleTypeCode=97, -- uint8
+						attachmentImplTypeIndex=4, -- uint8
+						attachmentFile='/Assets/tpp/parts/mecha/sav/sav0_wepn0_def.parts', -- filePtr
+						attachmentInstanceCount=1, -- uint8
+						bodyCnpName='CNP_weapon', -- string
+						attachmentBoneName=nil -- string
+					}
+				}
+			},
+		},
+
+		sound={
+			vehicleSoundPackage='/Assets/tpp/sound/package/vehicle_sav_media.sdf'
+		},
+
+		parts={ -- ModelDescription; *.parts
+			main={
+				foxModel='/Assets/tpp/mecha/sav/Scenes/sav0_main0_def.fmdl', -- modelFile; FilePtr
+				foxConnectionPoint='/Assets/tpp/mecha/sav/Scenes/sav0_main0_def.fcnp', -- connectPointFile; FilePtr
+				rigFile=nil, -- gameRigFile; FilePtr
+				helpBoneFile=nil, -- FilePtr
+				lipAdjustFile=nil, -- lipAdjustBinaryFile; FilePtr
+				facialSettingFile=nil, -- FilePtr
+				geometrySkeleton='/Assets/tpp/mecha/sav/Scenes/sav0_main0_def.gskl', -- GeomSkeletonDescription; gsklFile; FilePtr
+				physicsFile='/Assets/tpp/parts/mecha/sav/sav.ph', -- PhysicsDescription; physicsFile; FilePtr
+				vehicleFile='/Assets/tpp/parts/mecha/sav/sav.veh', -- VehicleDescription; vehicleFile; FilePtr
+				physicsSoundFile='/Assets/tpp/parts/mecha/sav/sav.phsd', -- SoundDescription; soundFile; FilePtr
+				targetFile='/Assets/tpp/parts/mecha/sav/sav.tgt', -- FoxTargetDescription; targetFile; FilePtr; /Assets/tpp/parts/mecha/smt/smt_rootdefensetarget.tgt
+				
+				LOD_farPixelSize=50,
+				LOD_closePixelSize=400,
+				LOD_polygonSize=-1,
+				renderRejectionLevel=8,
+				farShadowRejectionLevel=2
+
+				-- EffectDescription; effectFileFromFilePtr; FilePtr
+				vfx_ExhaustSmoke='/Assets/tpp/effect/vfx_data/mecha/fx_tpp_mchexhsmk01_s4MG.vfx',
+				vfx_DamageSmoke='fx_tpp_smkmchbrk01_m1LG',
+				vfx_BrokenSmoke='fx_tpp_smkmchbrk02_m2LG',
+				vfx_PreExplosion='/Assets/tpp/effect/vfx_data/explosion/fx_tpp_expptl01_s3.vfx',
+				
+				vfx_MuzzleFlash='/Assets/tpp/effect/vfx_data/muzzle/fx_tpp_mzfgg01_s0FG.vfx',
+				vfx_CannonMuzzleFlash=nil,
+				vfx_SubjectiveCannonMuzzleFlash=nil,
+				vfx_ShockWave=nil,
+				vfx_CannonShockWave=nil,
+				
+				vfx_SparkActive='/Assets/tpp/effect/vfx_data/weapon/fx_tpp_wepltb04_s0.vfx',
+				vfx_VehicleSandstorm=nil,
+				
+				vfx_LightProbe='/Assets/tpp/effect/vfx_data/mecha/fx_tpp_mchlpbsav00_s5MD.vfx',
+				vfx_LightProbeInner='/Assets/tpp/effect/vfx_data/mecha/fx_tpp_mchlpbsav00_s5MD.vfx',
+				vfx_TailLamp='/Assets/tpp/effect/vfx_data/light/fx_tpp_lgttil00_s0FG.vfx',
+				vfx_HeadlightLeft='/Assets/tpp/effect/vfx_data/mecha/fx_tpp_mchwavlgthed01_m2FG.vfx',
+				vfx_HeadlightRight='/Assets/tpp/effect/vfx_data/mecha/fx_tpp_mchwavlgthed01_m2FG.vfx',
+				vfx_BrakeHeadlightLeft='fx_tpp_brklgtgnt01_s1LG',
+				vfx_BrakeHeadlightRight='fx_tpp_brklgtgnt01_s1LG',
+				
+				vfx_SplashDoorLeft=nil,
+				vfx_SplashDoorRootLeft=nil,
+				vfx_SplashDoorRight=nil,
+				vfx_SplashDoorRightRoot=nil
+			}
+		},
+
+		engine={ -- 7 gears
+			torqueDistributions={ -- axles; float
+				[0]=0.25,
+				0.25,
+				0.25,
+				0.25
+			},
+
+			gearRatios=nil, -- float
+
+			cumulativeRPM={ -- specPointAngularVelocity; float
+				0,
+				500,
+				1e3,
+				1500,
+				2e3,
+				3e3,
+				16e3
+			},
+			torque={ -- specPointTorque; float
+				6e3,
+				6040,
+				6060,
+				6080,
+				6060,
+				3e3,
+				1e3
+			},
+			brakeTorque={ -- specPointBreakTorque; float
+				750,
+				750,
+				750,
+				1e3,
+				1e3,
+				1250,
+				1500
+			}
+		},
+
+		chassis={
+			front={ -- axle 0,1
+				maxBrakeTorque=70500, -- maxBreakTorque; float
+				differential=true, -- useDifferential; bool
+				wheels={
+					radius=0.62, -- float
+					suspensionLength=0.5, -- float
+					maxSuspensionForce=1.3, -- float
+					dampDecompressionFactor=0.01, -- dampingFactorElong; float
+					dampCompressionFactor=5e-3, -- dampingFactorCompress; float
+					friction=0.94, -- float
+					restitution=0.1, -- float
+					inertia=1 -- float
+				},
+			},
+			back={ -- axle 2,3
+				maxBrakeTorque=70500, -- maxBreakTorque; float
+				differential=true, -- useDifferential; bool
+				wheels={
+					radius=0.62, -- float
+					suspensionLength=0.5, -- float
+					maxSuspensionForce=1.5, -- float
+					dampDecompressionFactor=0.015, -- dampingFactorElong; float
+					dampCompressionFactor=7e-3, -- dampingFactorCompress; float
+					friction=1.17, -- float
+					restitution=0.1, -- float
+					inertia=1 -- float
+				},
+			},
+		},
+
+		body={ -- PhRigidBodyParam; *.ph
+			mass=15140, -- float
+			friction=1, -- float
+			restitution=1e-3, -- float
+			linearVelocityDamp=1e-4, -- float
+			linearVelocityMax=100, -- maxLinearVelocity; float
+			angularVelocityDamp=2e-4, -- float
+			angularVelocityMax=90, -- maxAngularVelocity; float
+			permittedDepth=0.01, -- float
+			sleepEnable=true, -- bool
+			sleepLinearVelocityTh=0.1, -- float
+			sleepAngularVelocityTh=30, -- float
+			sleepTimeTh=0.25, -- float
+			collisionGroup=0, -- uint16
+			collisionType=0, -- uint16
+			collisionId=93, -- uint32
+			centerOfMassOffset={x=0, y=-0.575, z=0.5, w=0}, -- vector3
+			motionType=2, -- int32
+			material=nil, -- string
+			noGravity=false -- bool
+		}
+	},
+
+	w_wav_cannon={ -- american apc (cannon)
+		fox2={
+			tppVehicle2BodyData={
+				name='veh_bd_west_wav|veh_bd_west_wav', -- string
+				typeIndex=5, -- uint8; VehicleTypeIndex
+				proxyTypeIndex=5, -- uint8; ProxyVehicleTypeIndex
+				bodyImplTypeIndex=4, -- uint8
+				partsFile='/Assets/tpp/parts/mecha/wav/wav0_main0_def.parts', -- filePtr
+				bodyInstanceCount=1, -- uint8
+				fovaFiles=nil -- filePtr
+			},
+
+			weaponParameters={
+				primary={
+					attackId='ATK_Tankgun_105mmRifledBoreGun', -- string
+					equipId='EQP_BL_Tankgun_105mmRifledBoreGun', -- string
+					bulletId='BL_Tankgun_105mmRifledBoreGun', -- string
+					weaponImplTypeIndex=2, -- uint8
+					fireInterval=5, -- float
+					weaponFile=nil, -- filePtr
+					ammoFile=nil, -- filePtr
+					ownerCnpName=nil, -- string
+					weaponBoneName=nil, -- string
+					turretBoneName='SKL_001_TURRET', -- string
+					barrelBoneName='SKL_002_BARREL', -- string
+					minPitch=-0.087266, -- float
+					maxPitch=0.785398, -- float
+					rotSpeed=0.392699 -- float
+
+					uiGraphEntry={
+						name='veh_at_west_wav_trt_cannon|sight_vhcl_west_wav_cannon|UiGraphEntry0000', -- string
+						files=nil, -- filePtr; dynamicArray
+						rawFiles={ -- filePtr; dynamicArray
+							'/Assets/tpp/ui/LayoutAsset/hud_wpscope/UI_wpscope_vehicle_wav0_a.uilb',
+							'/Assets/tpp/ui/LayoutAsset/hud_wpscope/UI_vhcl_def_FPS_bs.uilb',
+							'/Assets/tpp/ui/LayoutAsset/hud_wpscope/UI_wpscope_vehicle_common.uilb'
+						}
+					},
+
+					uiInstanceData={
+						name='veh_at_west_wav_trt_cannon|sight_vhcl_west_wav_cannon|UiInstanceData0000', -- string
+						createWindowParams=nil, -- filePtr; stringMap
+						windowFactoryName='SightVhclWav0_aFactory' -- string
+					},
+
+					attachmentData={
+						name='veh_at_west_wav_trt_cannon|veh_at_west_wav_trt_cannon', -- string
+						vehicleTypeCode=82, -- uint8
+						attachmentImplTypeIndex=3, -- uint8
+						attachmentFile='/Assets/tpp/parts/mecha/wav/wav0_turt0_def.parts', -- filePtr
+						attachmentInstanceCount=1, -- uint8
+						bodyCnpName='CNP_TURRET', -- string
+						attachmentBoneName=nil -- string
+					}
+				},
+
+				secondary={
+					attackId='ATK_Tankgun_12_7mmHeavyMachineGun_West', -- string
+					equipId=nil, -- string
+					bulletId='BL_Turret', -- string
+					weaponImplTypeIndex=4, -- uint8
+					fireInterval=0.125, -- float
+					weaponFile='/Assets/tpp/parts/weapon/hew/hw01_main0_def_wav0.parts', -- filePtr
+					ammoFile=nil, -- filePtr
+					ownerCnpName='CNP_awp_a', -- string
+					weaponBoneName=nil, -- string
+					turretBoneName='SKL_010_KYUPOL1', -- string
+					barrelBoneName='SKL_010_GUN', -- string
+					minPitch=-0.261799, -- float
+					maxPitch=1.047198, -- float
+					rotSpeed=2.094395 -- float
+				}
+			}
+		},
+
+		sound={
+			vehicleSoundPackage='/Assets/tpp/sound/package/vehicle_wav_media.sdf'
+		},
+
+		parts={ -- ModelDescription; *.parts
+			main={
+				foxModel='/Assets/tpp/mecha/wav/Scenes/wav0_main0_def.fmdl', -- modelFile; FilePtr
+				foxConnectionPoint='/Assets/tpp/mecha/wav/Scenes/wav0_main0_def.fcnp', -- connectPointFile; FilePtr
+				rigFile=nil, -- gameRigFile; FilePtr
+				helpBoneFile=nil, -- FilePtr
+				lipAdjustFile=nil, -- lipAdjustBinaryFile; FilePtr
+				facialSettingFile=nil, -- FilePtr
+				geometrySkeleton='/Assets/tpp/mecha/wav/Scenes/wav0_main0_def.gskl', -- GeomSkeletonDescription; gsklFile; FilePtr
+				physicsFile='/Assets/tpp/parts/mecha/wav/wav.ph', -- PhysicsDescription; physicsFile; FilePtr
+				vehicleFile='/Assets/tpp/parts/mecha/wav/wav.veh', -- VehicleDescription; vehicleFile; FilePtr
+				physicsSoundFile='/Assets/tpp/parts/mecha/wav/wav.phsd', -- SoundDescription; soundFile; FilePtr
+				targetFile='/Assets/tpp/parts/mecha/wav/wav.tgt', -- FoxTargetDescription; targetFile; FilePtr; /Assets/tpp/parts/mecha/smt/smt_rootdefensetarget.tgt
+				
+				LOD_farPixelSize=50,
+				LOD_closePixelSize=400,
+				LOD_polygonSize=-1,
+				renderRejectionLevel=8,
+				farShadowRejectionLevel=2
+
+				-- EffectDescription; effectFileFromFilePtr; FilePtr
+				vfx_ExhaustSmoke='/Assets/tpp/effect/vfx_data/mecha/fx_tpp_mchexhsmk01_s4MG.vfx',
+				vfx_DamageSmoke='fx_tpp_smkmchbrk01_m1LG',
+				vfx_BrokenSmoke='fx_tpp_smkmchbrk02_m2LG',
+				vfx_PreExplosion='/Assets/tpp/effect/vfx_data/explosion/fx_tpp_expptl01_s3.vfx',
+				
+				vfx_MuzzleFlash='/Assets/tpp/effect/vfx_data/muzzle/fx_tpp_mzfgg01_s0FG.vfx',
+				vfx_CannonMuzzleFlash='/Assets/tpp/effect/vfx_data/mecha/fx_tpp_mchstrmzlbls01_s8MG.vfx',
+				vfx_SubjectiveCannonMuzzleFlash='/Assets/tpp/effect/vfx_data/mecha/fx_tpp_mchstrmzlbls02_s8.vfx',
+				vfx_ShockWave='/Assets/tpp/effect/vfx_data/mecha/fx_tpp_mchstrmzlskw01_s8.vfx',
+				vfx_CannonShockWave='/Assets/tpp/effect/vfx_data/mecha/fx_tpp_mchstrmzlskw02_s2.vfx',
+				
+				vfx_SparkActive='/Assets/tpp/effect/vfx_data/weapon/fx_tpp_wepltb04_s0.vfx',
+				vfx_VehicleSandstorm='/Assets/tpp/effect/vfx_data/mecha/fx_tpp_mchsndstm02_s5LG.vfx',
+				
+				vfx_LightProbe='/Assets/tpp/effect/vfx_data/mecha/fx_tpp_mchlpbwav00_s5MD.vfx',
+				vfx_LightProbeInner='/Assets/tpp/effect/vfx_data/mecha/fx_tpp_mchlpbwav00_s5MD.vfx',
+				vfx_TailLamp='/Assets/tpp/effect/vfx_data/light/fx_tpp_lgttil00_s0FG.vfx',
+				vfx_HeadlightLeft='/Assets/tpp/effect/vfx_data/mecha/fx_tpp_mchwavlgthed01_m2FG.vfx',
+				vfx_HeadlightRight='/Assets/tpp/effect/vfx_data/mecha/fx_tpp_mchwavlgthed01_m2FG.vfx',
+				vfx_BrakeHeadlightLeft='fx_tpp_brklgtgnt01_s1LG',
+				vfx_BrakeHeadlightRight='fx_tpp_brklgtgnt01_s1LG',
+				
+				vfx_SplashDoorLeft=nil,
+				vfx_SplashDoorRootLeft=nil,
+				vfx_SplashDoorRight=nil,
+				vfx_SplashDoorRightRoot=nil
+			}
+		},
+
+		engine={ -- 8 gears
+			cumulativeRPM={ -- specPointAngularVelocity; float
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0
+			},
+			torque={ -- specPointTorque; float
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0
+			},
+			brakeTorque={ -- specPointBreakTorque; float
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0
+			}
+		},
+
+		chassis={
+			front={
+				maxBrakeTorque=, -- maxBreakTorque; float
+				differential=, -- useDifferential; bool
+				wheels={
+					radius=, -- float
+					suspensionLength=, -- float
+					maxSuspensionForce=, -- float
+					dampDecompressionFactor=, -- dampingFactorElong; float
+					dampCompressionFactor=, -- dampingFactorCompress; float
+					friction=, -- float
+					restitution=, -- float
+					inertia= -- float
+				},
+			},
+			back={
+				maxBrakeTorque=, -- maxBreakTorque; float
+				differential=, -- useDifferential; bool
+				wheels={
+					radius=, -- float
+					suspensionLength=, -- float
+					maxSuspensionForce=, -- float
+					dampDecompressionFactor=, -- dampingFactorElong; float
+					dampCompressionFactor=, -- dampingFactorCompress; float
+					friction=, -- float
+					restitution=, -- float
+					inertia= -- float
+				},
+			},
+		},
+
+		body={ -- PhRigidBodyParam; *.ph
+			mass=, -- float
+			friction=, -- float
+			restitution=, -- float
+			linearVelocityDamp=, -- float
+			linearVelocityMax=, -- maxLinearVelocity; float
+			angularVelocityDamp=, -- float
+			angularVelocityMax=, -- maxAngularVelocity; float
+			permittedDepth=, -- float
+			sleepEnable=, -- bool
+			sleepLinearVelocityTh=, -- float
+			sleepAngularVelocityTh=, -- float
+			sleepTimeTh=, -- float
+			collisionGroup=, -- uint16
+			collisionType=, -- uint16
+			collisionId=, -- uint32
+			centerOfMassOffset={x=, y=, z=, w=}, -- vector3
+			motionType=, -- int32
+			material=, -- string
+			noGravity= -- bool
+		}
+	},
+
+	e_tnk={ -- russian MBT
+		fox2={
+			tppVehicle2BodyData={
+				name=, -- string
+				typeIndex=, -- uint8; VehicleTypeIndex
+				proxyTypeIndex=, -- uint8; ProxyVehicleTypeIndex
+				bodyImplTypeIndex=, -- uint8
+				partsFile=, -- filePtr
+				bodyInstanceCount=, -- uint8
+				fovaFiles= -- filePtr
+			},
+
+			weaponParameters={
+				primary={
+					attackId=, -- string
+					equipId=, -- string
+					bulletId=, -- string
+					weaponImplTypeIndex=, -- uint8
+					fireInterval=, -- float
+					weaponFile=, -- filePtr
+					ammoFile=, -- filePtr
+					ownerCnpName=, -- string
+					weaponBoneName=, -- string
+					turretBoneName=, -- string
+					barrelBoneName=, -- string
+					minPitch=, -- float
+					maxPitch=, -- float
+					rotSpeed= -- float
+
+					uiGraphEntry={
+						name='', -- string
+						files={}, -- filePtr; dynamicArray
+						rawFiles={} -- filePtr; dynamicArray
+					},
+
+					uiInstanceData={
+						name='', -- string
+						createWindowParams=, -- filePtr; stringMap
+						windowFactoryName='' -- string
+					},
+
+					attachmentData={
+						name='', -- string
+						vehicleTypeCode=, -- uint8
+						attachmentImplTypeIndex=, -- uint8
+						attachmentFile='', -- filePtr
+						attachmentInstanceCount=, -- uint8
+						bodyCnpName=, -- string
+						attachmentBoneName= -- string
+					}
+				},
+
+				secondary={
+					attackId=, -- string
+					equipId=, -- string
+					bulletId=, -- string
+					weaponImplTypeIndex=, -- uint8
+					fireInterval=, -- float
+					weaponFile=, -- filePtr
+					ammoFile=, -- filePtr
+					ownerCnpName=, -- string
+					weaponBoneName=, -- string
+					turretBoneName=, -- string
+					barrelBoneName=, -- string
+					minPitch=, -- float
+					maxPitch=, -- float
+					rotSpeed= -- float
+
+					uiGraphEntry={
+						name='', -- string
+						files={}, -- filePtr; dynamicArray
+						rawFiles={} -- filePtr; dynamicArray
+					},
+
+					uiInstanceData={
+						name='', -- string
+						createWindowParams=, -- filePtr; stringMap
+						windowFactoryName='' -- string
+					},
+
+					attachmentData={
+						name='', -- string
+						vehicleTypeCode=, -- uint8
+						attachmentImplTypeIndex=, -- uint8
+						attachmentFile='', -- filePtr
+						attachmentInstanceCount=, -- uint8
+						bodyCnpName=, -- string
+						attachmentBoneName= -- string
+					}
+				}
+			},
+		},
+
+		sound={
+			vehicleSoundPackage=
+		},
+
+		parts={ -- ModelDescription; *.parts
+			main={
+				foxModel=, -- modelFile; FilePtr
+				foxConnectionPoint=, -- connectPointFile; FilePtr
+				rigFile=, -- gameRigFile; FilePtr
+				helpBoneFile=, -- FilePtr
+				lipAdjustFile=, -- lipAdjustBinaryFile; FilePtr
+				facialSettingFile=, -- FilePtr
+				geometrySkeleton=, -- GeomSkeletonDescription; gsklFile; FilePtr
+				physicsFile=, -- PhysicsDescription; physicsFile; FilePtr
+				vehicleFile=, -- VehicleDescription; vehicleFile; FilePtr
+				physicsSoundFile=, -- SoundDescription; soundFile; FilePtr
+				targetFile=, -- FoxTargetDescription; targetFile; FilePtr; /Assets/tpp/parts/mecha/smt/smt_rootdefensetarget.tgt
+				
+				LOD_farPixelSize=,
+				LOD_closePixelSize=,
+				LOD_polygonSize=,
+				renderRejectionLevel=,
+				farShadowRejectionLevel=
+
+				-- EffectDescription; effectFileFromFilePtr; FilePtr
+				vfx_ExhaustSmoke=,
+				vfx_DamageSmoke=,
+				vfx_BrokenSmoke=,
+				vfx_PreExplosion=,
+				
+				vfx_MuzzleFlash=,
+				vfx_CannonMuzzleFlash=,
+				vfx_SubjectiveCannonMuzzleFlash=,
+				vfx_ShockWave=,
+				vfx_CannonShockWave=,
+				
+				vfx_SparkActive=,
+				vfx_VehicleSandstorm=,
+				
+				vfx_LightProbe=,
+				vfx_LightProbeInner=,
+				vfx_TailLamp=,
+				vfx_HeadlightLeft=,
+				vfx_HeadlightRight=,
+				vfx_BrakeHeadlightLeft=,
+				vfx_BrakeHeadlightRight=,
+				
+				vfx_SplashDoorLeft=,
+				vfx_SplashDoorRootLeft=,
+				vfx_SplashDoorRight=,
+				vfx_SplashDoorRightRoot=,
+			},
+
+			window={
+				front={
+					connectionPointName=,
+					foxModel=,
+
+					vfx_BrokenGlass=,
+					effectConnect=,
+					changeEffectConnectSetting=,
+					visibleModelWithEffect=,
+					createStartEffect=,
+					effectRandomSeed=, -- uint32
+					effectKind=, -- int32 
+
+					geom_WindowGlass=,
+
+					LOD_farPixelSize=,
+					LOD_closePixelSize=,
+					LOD_polygonSize=,
+					renderRejectionLevel=,
+					farShadowRejectionLevel=
+				},
+				back={
+					connectionPointName=,
+					foxModel=,
+
+					vfx_BrokenGlass=,
+					effectConnect=,
+					changeEffectConnectSetting=,
+					visibleModelWithEffect=,
+					createStartEffect=,
+					effectRandomSeed=, -- uint32
+					effectKind=, -- int32 
+
+					geom_WindowGlass=,
+
+					LOD_farPixelSize=,
+					LOD_closePixelSize=,
+					LOD_polygonSize=,
+					renderRejectionLevel=,
+					farShadowRejectionLevel=
+				},
+				left={
+					connectionPointName=,
+					foxModel=,
+
+					vfx_BrokenGlass=,
+					effectConnect=,
+					changeEffectConnectSetting=,
+					visibleModelWithEffect=,
+					createStartEffect=,
+					effectRandomSeed=, -- uint32
+					effectKind=, -- int32 
+
+					geom_WindowGlass=,
+
+					LOD_farPixelSize=,
+					LOD_closePixelSize=,
+					LOD_polygonSize=,
+					renderRejectionLevel=,
+					farShadowRejectionLevel=
+				},
+				right={
+					connectionPointName=,
+					foxModel=,
+
+					vfx_BrokenGlass=,
+					effectConnect=,
+					changeEffectConnectSetting=,
+					visibleModelWithEffect=,
+					createStartEffect=,
+					effectRandomSeed=, -- uint32
+					effectKind=, -- int32 
+
+					geom_WindowGlass=,
+
+					LOD_farPixelSize=,
+					LOD_closePixelSize=,
+					LOD_polygonSize=,
+					renderRejectionLevel=,
+					farShadowRejectionLevel=
+				}
+			}
+		},
+
+		engine={ -- 8 gears
+			cumulativeRPM={ -- specPointAngularVelocity; float
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0
+			},
+			torque={ -- specPointTorque; float
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0
+			},
+			brakeTorque={ -- specPointBreakTorque; float
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0
+			}
+		},
+
+		chassis={
+			front={
+				maxBrakeTorque=, -- maxBreakTorque; float
+				differential=, -- useDifferential; bool
+				wheels={
+					radius=, -- float
+					suspensionLength=, -- float
+					maxSuspensionForce=, -- float
+					dampDecompressionFactor=, -- dampingFactorElong; float
+					dampCompressionFactor=, -- dampingFactorCompress; float
+					friction=, -- float
+					restitution=, -- float
+					inertia= -- float
+				},
+			},
+			back={
+				maxBrakeTorque=, -- maxBreakTorque; float
+				differential=, -- useDifferential; bool
+				wheels={
+					radius=, -- float
+					suspensionLength=, -- float
+					maxSuspensionForce=, -- float
+					dampDecompressionFactor=, -- dampingFactorElong; float
+					dampCompressionFactor=, -- dampingFactorCompress; float
+					friction=, -- float
+					restitution=, -- float
+					inertia= -- float
+				},
+			},
+		},
+
+		body={ -- PhRigidBodyParam; *.ph
+			mass=, -- float
+			friction=, -- float
+			restitution=, -- float
+			linearVelocityDamp=, -- float
+			linearVelocityMax=, -- maxLinearVelocity; float
+			angularVelocityDamp=, -- float
+			angularVelocityMax=, -- maxAngularVelocity; float
+			permittedDepth=, -- float
+			sleepEnable=, -- bool
+			sleepLinearVelocityTh=, -- float
+			sleepAngularVelocityTh=, -- float
+			sleepTimeTh=, -- float
+			collisionGroup=, -- uint16
+			collisionType=, -- uint16
+			collisionId=, -- uint32
+			centerOfMassOffset={x=, y=, z=, w=}, -- vector3
+			motionType=, -- int32
+			material=, -- string
+			noGravity= -- bool
+		}
+	},
+
+	w_tnk={ -- american MBT
+		fox2={
+			tppVehicle2BodyData={
+				name=, -- string
+				typeIndex=, -- uint8; VehicleTypeIndex
+				proxyTypeIndex=, -- uint8; ProxyVehicleTypeIndex
+				bodyImplTypeIndex=, -- uint8
+				partsFile=, -- filePtr
+				bodyInstanceCount=, -- uint8
+				fovaFiles= -- filePtr
+			},
+
+			weaponParameters={
+				primary={
+					attackId=, -- string
+					equipId=, -- string
+					bulletId=, -- string
+					weaponImplTypeIndex=, -- uint8
+					fireInterval=, -- float
+					weaponFile=, -- filePtr
+					ammoFile=, -- filePtr
+					ownerCnpName=, -- string
+					weaponBoneName=, -- string
+					turretBoneName=, -- string
+					barrelBoneName=, -- string
+					minPitch=, -- float
+					maxPitch=, -- float
+					rotSpeed= -- float
+
+					uiGraphEntry={
+						name='', -- string
+						files={}, -- filePtr; dynamicArray
+						rawFiles={} -- filePtr; dynamicArray
+					},
+
+					uiInstanceData={
+						name='', -- string
+						createWindowParams=, -- filePtr; stringMap
+						windowFactoryName='' -- string
+					},
+
+					attachmentData={
+						name='', -- string
+						vehicleTypeCode=, -- uint8
+						attachmentImplTypeIndex=, -- uint8
+						attachmentFile='', -- filePtr
+						attachmentInstanceCount=, -- uint8
+						bodyCnpName=, -- string
+						attachmentBoneName= -- string
+					}
+				},
+
+				secondary={
+					attackId=, -- string
+					equipId=, -- string
+					bulletId=, -- string
+					weaponImplTypeIndex=, -- uint8
+					fireInterval=, -- float
+					weaponFile=, -- filePtr
+					ammoFile=, -- filePtr
+					ownerCnpName=, -- string
+					weaponBoneName=, -- string
+					turretBoneName=, -- string
+					barrelBoneName=, -- string
+					minPitch=, -- float
+					maxPitch=, -- float
+					rotSpeed= -- float
+
+					uiGraphEntry={
+						name='', -- string
+						files={}, -- filePtr; dynamicArray
+						rawFiles={} -- filePtr; dynamicArray
+					},
+
+					uiInstanceData={
+						name='', -- string
+						createWindowParams=, -- filePtr; stringMap
+						windowFactoryName='' -- string
+					},
+
+					attachmentData={
+						name='', -- string
+						vehicleTypeCode=, -- uint8
+						attachmentImplTypeIndex=, -- uint8
+						attachmentFile='', -- filePtr
+						attachmentInstanceCount=, -- uint8
+						bodyCnpName=, -- string
+						attachmentBoneName= -- string
+					}
+				}
+			},
+		},
+
+		sound={
+			vehicleSoundPackage=
+		},
+
+		parts={ -- ModelDescription; *.parts
+			main={
+				foxModel=, -- modelFile; FilePtr
+				foxConnectionPoint=, -- connectPointFile; FilePtr
+				rigFile=, -- gameRigFile; FilePtr
+				helpBoneFile=, -- FilePtr
+				lipAdjustFile=, -- lipAdjustBinaryFile; FilePtr
+				facialSettingFile=, -- FilePtr
+				geometrySkeleton=, -- GeomSkeletonDescription; gsklFile; FilePtr
+				physicsFile=, -- PhysicsDescription; physicsFile; FilePtr
+				vehicleFile=, -- VehicleDescription; vehicleFile; FilePtr
+				physicsSoundFile=, -- SoundDescription; soundFile; FilePtr
+				targetFile=, -- FoxTargetDescription; targetFile; FilePtr; /Assets/tpp/parts/mecha/smt/smt_rootdefensetarget.tgt
+				
+				LOD_farPixelSize=,
+				LOD_closePixelSize=,
+				LOD_polygonSize=,
+				renderRejectionLevel=,
+				farShadowRejectionLevel=
+
+				-- EffectDescription; effectFileFromFilePtr; FilePtr
+				vfx_ExhaustSmoke=,
+				vfx_DamageSmoke=,
+				vfx_BrokenSmoke=,
+				vfx_PreExplosion=,
+				
+				vfx_MuzzleFlash=,
+				vfx_CannonMuzzleFlash=,
+				vfx_SubjectiveCannonMuzzleFlash=,
+				vfx_ShockWave=,
+				vfx_CannonShockWave=,
+				
+				vfx_SparkActive=,
+				vfx_VehicleSandstorm=,
+				
+				vfx_LightProbe=,
+				vfx_LightProbeInner=,
+				vfx_TailLamp=,
+				vfx_HeadlightLeft=,
+				vfx_HeadlightRight=,
+				vfx_BrakeHeadlightLeft=,
+				vfx_BrakeHeadlightRight=,
+				
+				vfx_SplashDoorLeft=,
+				vfx_SplashDoorRootLeft=,
+				vfx_SplashDoorRight=,
+				vfx_SplashDoorRightRoot=,
+			},
+
+			window={
+				front={
+					connectionPointName=,
+					foxModel=,
+
+					vfx_BrokenGlass=,
+					effectConnect=,
+					changeEffectConnectSetting=,
+					visibleModelWithEffect=,
+					createStartEffect=,
+					effectRandomSeed=, -- uint32
+					effectKind=, -- int32 
+
+					geom_WindowGlass=,
+
+					LOD_farPixelSize=,
+					LOD_closePixelSize=,
+					LOD_polygonSize=,
+					renderRejectionLevel=,
+					farShadowRejectionLevel=
+				},
+				back={
+					connectionPointName=,
+					foxModel=,
+
+					vfx_BrokenGlass=,
+					effectConnect=,
+					changeEffectConnectSetting=,
+					visibleModelWithEffect=,
+					createStartEffect=,
+					effectRandomSeed=, -- uint32
+					effectKind=, -- int32 
+
+					geom_WindowGlass=,
+
+					LOD_farPixelSize=,
+					LOD_closePixelSize=,
+					LOD_polygonSize=,
+					renderRejectionLevel=,
+					farShadowRejectionLevel=
+				},
+				left={
+					connectionPointName=,
+					foxModel=,
+
+					vfx_BrokenGlass=,
+					effectConnect=,
+					changeEffectConnectSetting=,
+					visibleModelWithEffect=,
+					createStartEffect=,
+					effectRandomSeed=, -- uint32
+					effectKind=, -- int32 
+
+					geom_WindowGlass=,
+
+					LOD_farPixelSize=,
+					LOD_closePixelSize=,
+					LOD_polygonSize=,
+					renderRejectionLevel=,
+					farShadowRejectionLevel=
+				},
+				right={
+					connectionPointName=,
+					foxModel=,
+
+					vfx_BrokenGlass=,
+					effectConnect=,
+					changeEffectConnectSetting=,
+					visibleModelWithEffect=,
+					createStartEffect=,
+					effectRandomSeed=, -- uint32
+					effectKind=, -- int32 
+
+					geom_WindowGlass=,
+
+					LOD_farPixelSize=,
+					LOD_closePixelSize=,
+					LOD_polygonSize=,
+					renderRejectionLevel=,
+					farShadowRejectionLevel=
+				}
+			}
+		},
+
+		engine={ -- 8 gears
+			cumulativeRPM={ -- specPointAngularVelocity; float
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0
+			},
+			torque={ -- specPointTorque; float
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0
+			},
+			brakeTorque={ -- specPointBreakTorque; float
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0,
+				0
+			}
+		},
+
+		chassis={
+			front={
+				maxBrakeTorque=, -- maxBreakTorque; float
+				differential=, -- useDifferential; bool
+				wheels={
+					radius=, -- float
+					suspensionLength=, -- float
+					maxSuspensionForce=, -- float
+					dampDecompressionFactor=, -- dampingFactorElong; float
+					dampCompressionFactor=, -- dampingFactorCompress; float
+					friction=, -- float
+					restitution=, -- float
+					inertia= -- float
+				},
+			},
+			back={
+				maxBrakeTorque=, -- maxBreakTorque; float
+				differential=, -- useDifferential; bool
+				wheels={
+					radius=, -- float
+					suspensionLength=, -- float
+					maxSuspensionForce=, -- float
+					dampDecompressionFactor=, -- dampingFactorElong; float
+					dampCompressionFactor=, -- dampingFactorCompress; float
+					friction=, -- float
+					restitution=, -- float
+					inertia= -- float
+				},
+			},
+		},
+
+		body={ -- PhRigidBodyParam; *.ph
+			mass=, -- float
+			friction=, -- float
+			restitution=, -- float
+			linearVelocityDamp=, -- float
+			linearVelocityMax=, -- maxLinearVelocity; float
+			angularVelocityDamp=, -- float
+			angularVelocityMax=, -- maxAngularVelocity; float
+			permittedDepth=, -- float
+			sleepEnable=, -- bool
+			sleepLinearVelocityTh=, -- float
+			sleepAngularVelocityTh=, -- float
+			sleepTimeTh=, -- float
+			collisionGroup=, -- uint16
+			collisionType=, -- uint16
+			collisionId=, -- uint32
+			centerOfMassOffset={x=, y=, z=, w=}, -- vector3
+			motionType=, -- int32
+			material=, -- string
+			noGravity= -- bool
+		}
 	}
 
 --[[
@@ -979,6 +2354,28 @@ this.vehicleDefaultData={
 					minPitch=, -- float
 					maxPitch=, -- float
 					rotSpeed= -- float
+
+					uiGraphEntry={
+						name='', -- string
+						files={}, -- filePtr; dynamicArray
+						rawFiles={} -- filePtr; dynamicArray
+					},
+
+					uiInstanceData={
+						name='', -- string
+						createWindowParams=, -- filePtr; stringMap
+						windowFactoryName='' -- string
+					},
+
+					attachmentData={
+						name='', -- string
+						vehicleTypeCode=, -- uint8
+						attachmentImplTypeIndex=, -- uint8
+						attachmentFile='', -- filePtr
+						attachmentInstanceCount=, -- uint8
+						bodyCnpName=, -- string
+						attachmentBoneName= -- string
+					}
 				},
 
 				secondary={
@@ -996,6 +2393,28 @@ this.vehicleDefaultData={
 					minPitch=, -- float
 					maxPitch=, -- float
 					rotSpeed= -- float
+
+					uiGraphEntry={
+						name='', -- string
+						files={}, -- filePtr; dynamicArray
+						rawFiles={} -- filePtr; dynamicArray
+					},
+
+					uiInstanceData={
+						name='', -- string
+						createWindowParams=, -- filePtr; stringMap
+						windowFactoryName='' -- string
+					},
+
+					attachmentData={
+						name='', -- string
+						vehicleTypeCode=, -- uint8
+						attachmentImplTypeIndex=, -- uint8
+						attachmentFile='', -- filePtr
+						attachmentInstanceCount=, -- uint8
+						bodyCnpName=, -- string
+						attachmentBoneName= -- string
+					}
 				}
 			},
 		},
@@ -1018,31 +2437,39 @@ this.vehicleDefaultData={
 				physicsSoundFile=, -- SoundDescription; soundFile; FilePtr
 				targetFile=, -- FoxTargetDescription; targetFile; FilePtr; /Assets/tpp/parts/mecha/smt/smt_rootdefensetarget.tgt
 				
-				-- EffectDescription; effectFileFromFilePtr; FilePtr
-				vfx_TailLamp=,
-				vfx_ExhaustSmoke=,
-				vfx_LightProbe=,
-				vfx_LightProbeInner=,
-				vfx_DamageSmoke=,
-				vfx_BrokenSmoke=,
-				vfx_PreExplosion=,
-				vfx_MuzzleFlash=,
-				vfx_VehicleSandstorm=,
-				vfx_HeadlightLeft=,
-				vfx_HeadlightRight=,
-				vfx_BrakeHeadlightLeft=,
-				vfx_BrakeHeadlightRight=,
-				vfx_SparkActive=,
-				vfx_SplashDoorLeft=,
-				vfx_SplashDoorRootLeft=,
-				vfx_SplashDoorRight=,
-				vfx_SplashDoorRightRoot=,
-
 				LOD_farPixelSize=,
 				LOD_closePixelSize=,
 				LOD_polygonSize=,
 				renderRejectionLevel=,
 				farShadowRejectionLevel=
+
+				-- EffectDescription; effectFileFromFilePtr; FilePtr
+				vfx_ExhaustSmoke=,
+				vfx_DamageSmoke=,
+				vfx_BrokenSmoke=,
+				vfx_PreExplosion=,
+				
+				vfx_MuzzleFlash=,
+				vfx_CannonMuzzleFlash=,
+				vfx_SubjectiveCannonMuzzleFlash=,
+				vfx_ShockWave=,
+				vfx_CannonShockWave=,
+				
+				vfx_SparkActive=,
+				vfx_VehicleSandstorm=,
+				
+				vfx_LightProbe=,
+				vfx_LightProbeInner=,
+				vfx_TailLamp=,
+				vfx_HeadlightLeft=,
+				vfx_HeadlightRight=,
+				vfx_BrakeHeadlightLeft=,
+				vfx_BrakeHeadlightRight=,
+				
+				vfx_SplashDoorLeft=,
+				vfx_SplashDoorRootLeft=,
+				vfx_SplashDoorRight=,
+				vfx_SplashDoorRightRoot=,
 			},
 
 			window={
